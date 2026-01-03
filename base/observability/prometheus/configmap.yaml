@@ -18,6 +18,6 @@ data:
       - job_name: 'inventory-service'
         metrics_path: '/actuator/prometheus'
         static_configs:
-          - targets: ['inventory-service.default.svc.cluster.local:8081']
+          - targets: ['inventory-service.default.svc.cluster.local:8082']
             labels:
               application: Inventory Service

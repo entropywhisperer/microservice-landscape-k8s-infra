@@ -1,4 +1,5 @@
 # Kubernetes Deployment: Order & Inventory Services
+![Architecture](./microservices_architecture.png)
 
 ## Quick Start
 ```bash
