@@ -29,7 +29,7 @@ spec:
             - -config.file=/etc/loki/local-config.yaml
           volumeMounts:
             - name: loki-data
-              mountPath: /var/loki
+              mountPath: /loki
   volumeClaimTemplates:
     - metadata:
         name: loki-data
