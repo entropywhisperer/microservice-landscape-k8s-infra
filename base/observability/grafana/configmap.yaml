@@ -23,3 +23,15 @@ data:
         version: 1
         editable: false
         apiVersion: 1
+      - name: Tempo
+        type: tempo
+        access: proxy
+        url: http://tempo:3200
+        isDefault: false
+        jsonData:
+          tracesToLogs:
+            datasourceUid: loki
+            tags: ["job", "instance", "pod", "namespace"]
+            mappedTags:
+              - key: service.name
+                value: service

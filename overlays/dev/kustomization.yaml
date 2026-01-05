@@ -12,6 +12,7 @@ resources:
   - ../../base/observability/grafana
   - ../../base/observability/loki
   - ../../base/observability/prometheus
+  - ../../base/observability/tempo
   - ../../base/order/
 
 patches:

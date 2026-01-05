@@ -5,6 +5,7 @@ from diagrams.k8s.storage import PVC
 from diagrams.k8s.clusterconfig import HPA
 from diagrams.onprem.database import PostgreSQL, MySQL
 from diagrams.onprem.monitoring import Prometheus, Grafana
+from diagrams.onprem.tracing import Tempo
 from diagrams.onprem.logging import Loki
 
 with Diagram(
@@ -19,6 +20,7 @@ with Diagram(
             prometheus = Prometheus("Prometheus")
             grafana = Grafana("Grafana")
             loki = Loki("Loki")
+            tempo = Tempo("Tempo")
 
         with Cluster("Order Service"):
             order_hpa = HPA("order-hpa\nmin=2 max=5\nCPU > 50%")
@@ -52,6 +54,10 @@ with Diagram(
         prometheus >> Edge(label="scrape /actuator/prometheus") >> order_svc
         prometheus >> Edge(label="scrape /actuator/prometheus") >> inventory_svc
         grafana >> Edge(label="PromQL queries") >> prometheus
+        grafana >> Edge(label="TraceQL queries") >> tempo
 
         loki << order_pod
         loki << inventory_pod
+
+        tempo << order_pod
+        tempo << inventory_pod
