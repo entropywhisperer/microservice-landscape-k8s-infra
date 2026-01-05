@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: inventory-service
-          image: inventory-service:1.0.1
+          image: inventory-service:1.0.2
           imagePullPolicy: Never
           resources:
             limits:
@@ -44,6 +44,11 @@ spec:
                 configMapKeyRef:
                   key: LOKI_URI
                   name: inventory-service-config
+            - name: TEMPO_URI
+              valueFrom:
+                configMapKeyRef:
+                  key: TEMPO_URI
+                  name: inventory-service-config      
           startupProbe:
             httpGet:
               path: /actuator/health/liveness

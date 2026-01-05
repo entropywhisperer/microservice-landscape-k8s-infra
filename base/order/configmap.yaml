@@ -8,3 +8,4 @@ data:
   INVENTORY_SERVICE_URL: http://inventory-service.default.svc.cluster.local:8082
   INVENTORY_SERVICE_API_VERSION: 1.0.0
   LOKI_URI: loki.default.svc.cluster.local:3100
+  TEMPO_URI: http://tempo.default.svc.cluster.local:4318/v1/traces

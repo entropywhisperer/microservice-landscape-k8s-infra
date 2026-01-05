@@ -6,3 +6,4 @@ data:
   DATASOURCE_URL: "jdbc:postgresql://postgresql.default.svc.cluster.local:5432/inventory_service"
   DB_USERNAME: postgres
   LOKI_URI: loki.default.svc.cluster.local:3100
+  TEMPO_URI: http://tempo.default.svc.cluster.local:4318/v1/traces
